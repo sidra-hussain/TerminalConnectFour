@@ -7,6 +7,7 @@ public class PlayConnectFour {
         ConnectFour game = new ConnectFour ();
         TurnManager turnManager = new TurnManager();
 
+        System.out.println (game.toString());
 
         while(!game.isGameOver){
             
@@ -30,10 +31,6 @@ public class PlayConnectFour {
         }
 
         System.out.println("PLAYER: " + game.winner + "WINS!");
-    }
-
-    static void render(ConnectFour game){
-
     }
     
 }

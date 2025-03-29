@@ -31,7 +31,15 @@ public class ConnectFour {
     }
 
     public String toString (){
-        return "";
+        String boardString = "";
+        for (int i=0; i < board.length; i++){
+            for (int j=0; j < board[i].length; j++){
+                boardString+=board[i][j] + " ";
+            }
+            boardString+="\n";
+        }
+        
+        return boardString;
     }
     
 }

@@ -22,12 +22,4 @@ public class TurnManager {
         
         return 2;
     }
-
-    public boolean isPlayer1Turn (){
-        return player1Turn;
-    }
-
-    public boolean isPlayer2Turn (){
-        return !player1Turn;
-    }
 }
