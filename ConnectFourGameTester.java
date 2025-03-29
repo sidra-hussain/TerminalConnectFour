@@ -12,7 +12,7 @@ public class ConnectFourGameTester {
         
     }
 
-    //Tests for the turn manager
+    //*****TURN MANAGER TESTS********
 
     // Tests that the initial turn starts with player 1
     public static void testInitialTurn() {
@@ -48,6 +48,7 @@ public class ConnectFourGameTester {
         System.out.println("TEST 3 FAILED: getCurrentTurn did not return correct player");
     }
 
+    //*****GAME BOARD TESTS********
     //Tests that an empty board is correctly printed
     public static void testConnectFourToStringEmpty(){
         ConnectFour game = new ConnectFour();
