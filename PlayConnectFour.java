@@ -30,7 +30,14 @@ public class PlayConnectFour {
         }
 
         System.out.println(game.toString());
-        System.out.println("PLAYER: " + game.winner + " WINS!");
+
+        if (game.winner != 1 && game.winner != 2){ 
+            System.out.println("GAME OVER: NO WINNER");
+        }
+        else{
+            System.out.println("PLAYER: " + game.winner + " WINS!");
+        }
+        
         scanner.close();
     }
     
