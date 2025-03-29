@@ -5,17 +5,18 @@ public class ConnectFour {
     int [][] board;
     int winner;
 
+    //Constructor: Empty Board
     public ConnectFour () {
         board = new int [6][7];
         winner = -1;
     }
 
+    //Constructor: Specific Board
     public ConnectFour (int [][] board) {
         this.board = board;
         winner = -1;
     }
 
-    //TODO
     //Description: This function performs the move a player indicates on the board
     //Inputs: player = player performing the move, row = the row the player is dropping their piece into 
     //Return Values: Returns true if the move is valid, else false
@@ -38,7 +39,6 @@ public class ConnectFour {
     }
     
 
-    //TODO
     //Description: This function checks if a player has won, and stores the player number of the winner
     //Inputs: None
     //Return Values: Returns true if the game is over, else returns false
@@ -107,6 +107,9 @@ public class ConnectFour {
         return boardCount == board.length*board[0].length;
     }
 
+    //Description: This function returns the board as a string
+    //Inputs: None
+    //Return Values: String containing the current board
     public String toString (){
         String boardString = "";
         for (int row=0; row < board.length; row++){
