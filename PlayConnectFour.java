@@ -30,7 +30,7 @@ public class PlayConnectFour {
         }
 
         System.out.println(game.toString());
-        System.out.println("PLAYER: " + game.winner + "WINS!");
+        System.out.println("PLAYER: " + game.winner + " WINS!");
         scanner.close();
     }
     

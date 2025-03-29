@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class ConnectFour {
 
     int [][] board;
@@ -37,6 +39,65 @@ public class ConnectFour {
     //Inputs: None
     //Return Values: Returns true if the game is over, else returns false
     public boolean isGameOver(){
+
+        //directions you can make a set with 
+        int[][] dirs = {
+            {0, 1},  // Horizontal 
+            {1, 0},  // Vertical 
+            {1, 1},  // Diagonal 
+            {1, -1}  // Diagonal 
+        };
+
+        //iterate over every piece to see if a winning play has been made
+        for (int row=0; row < board.length; row++){
+            for (int col=0; col < board[row].length; col++){
+                //check if the current spot has something played in it
+                if(board[row][col] != 0){
+
+                    //check to see if this makes a set of 4
+                    int player = board[row][col];
+
+                    //for every direction see if it starts a chain
+                    for (int [] dir : dirs){
+                        
+                        int nextRow = row;
+                        int nextCol = col;
+                        int count = 1;
+
+                        //take 3 more steps in that direction
+                        for (int i=0; i < 3; i++){
+                            
+                            nextRow+=dir[0];
+                            nextCol+=dir[1];
+
+                            //check the value is within the bound 
+                            if(nextRow >= board.length || nextRow < 0 || nextCol >= board[0].length || nextCol < 0){
+                                break;
+                            }
+
+                            //if we have more pieces in the chain increment the count
+                            else if (board[nextRow][nextCol] == player){
+                                count++;
+                            }
+
+                            //chain is broken so end
+                            else{
+                                break;
+                            }
+
+                        }
+
+                        //if we found 4 in a row we have a winner
+                        if (count == 4){
+                            winner = player;
+                            return true;
+                        }
+                    }
+
+                }
+
+            }
+        }
 
         return false;
     }

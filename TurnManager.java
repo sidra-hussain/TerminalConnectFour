@@ -6,16 +6,16 @@ public class TurnManager {
     boolean player1Turn; 
 
     public TurnManager(){
-        this.player1Turn = true;
+        player1Turn = true;
     }
 
     public void completeTurn (){
         
-        this.player1Turn = !this.player1Turn;
+        player1Turn = !player1Turn;
     }
 
     public int getCurrentTurn(){
 
-        return (this.player1Turn == true) ? 1 : 2;
+        return (player1Turn == true) ? 1 : 2;
     }
 }
