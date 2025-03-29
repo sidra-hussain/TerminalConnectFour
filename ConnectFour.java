@@ -43,7 +43,6 @@ public class ConnectFour {
     //Inputs: None
     //Return Values: Returns true if the game is over, else returns false
     public boolean isGameOver(){
-
         //directions you can make a set with 
         int[][] dirs = {
             {0, 1},  // Horizontal 

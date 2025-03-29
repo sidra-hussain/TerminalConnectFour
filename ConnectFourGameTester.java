@@ -139,12 +139,12 @@ public class ConnectFourGameTester {
     // Test for no winner
     public static void testNoWinner() {
         int[][] board = {
-            {1, 2, 1, 2, 1, 2, 1},
-            {2, 1, 2, 1, 2, 1, 2},
-            {1, 2, 1, 2, 1, 2, 1},
-            {2, 1, 2, 1, 2, 1, 2},
-            {1, 2, 1, 2, 1, 2, 1},
-            {2, 1, 2, 1, 2, 1, 2}  // Full board, no four in a row
+            {1, 1, 2, 1, 1, 2, 1},
+            {2, 2, 1, 2, 1, 2, 1},
+            {1, 1, 1, 2, 1, 2, 1},
+            {2, 1, 1, 1, 2, 1, 2},
+            {1, 2, 2, 2, 1, 1, 1},
+            {2, 1, 1, 2, 2, 2, 1}
         };
         ConnectFour game = new ConnectFour(board);
         if (game.isGameOver() && game.winner == -1) {
