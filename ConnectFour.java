@@ -49,11 +49,12 @@ public class ConnectFour {
         };
 
         //iterate over every piece to see if a winning play has been made
+        int boardCount = 0;
         for (int row=0; row < board.length; row++){
             for (int col=0; col < board[row].length; col++){
                 //check if the current spot has something played in it
                 if(board[row][col] != 0){
-
+                    boardCount++;
                     //check to see if this makes a set of 4
                     int player = board[row][col];
 
@@ -62,7 +63,7 @@ public class ConnectFour {
                         
                         int nextRow = row;
                         int nextCol = col;
-                        int count = 1;
+                        int playCount = 1;
 
                         //take 3 more steps in that direction
                         for (int i=0; i < 3; i++){
@@ -77,7 +78,7 @@ public class ConnectFour {
 
                             //if we have more pieces in the chain increment the count
                             else if (board[nextRow][nextCol] == player){
-                                count++;
+                                playCount++;
                             }
 
                             //chain is broken so end
@@ -88,7 +89,7 @@ public class ConnectFour {
                         }
 
                         //if we found 4 in a row we have a winner
-                        if (count == 4){
+                        if (playCount == 4){
                             winner = player;
                             return true;
                         }
@@ -99,7 +100,8 @@ public class ConnectFour {
             }
         }
 
-        return false;
+        //check if the board is full, if full than game over, otherwise the game keeps going
+        return boardCount == board.length*board[0].length;
     }
 
     public String toString (){
