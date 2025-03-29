@@ -7,12 +7,10 @@ public class PlayConnectFour {
         ConnectFour game = new ConnectFour ();
         TurnManager turnManager = new TurnManager();
 
-        System.out.println (game.toString());
-
-        while(!game.isGameOver){
+        while(!game.isGameOver()){
             
             //print the current state of the game
-            game.toString();
+            System.out.println (game.toString());
 
             System.out.println("Player " + turnManager.getCurrentTurn() + "'s turn. Select a column between 0 and 6 to drop your piece");
             int play = scanner.nextInt();
@@ -30,6 +28,7 @@ public class PlayConnectFour {
             }
         }
 
+        System.out.println(game.toString());
         System.out.println("PLAYER: " + game.winner + "WINS!");
     }
     

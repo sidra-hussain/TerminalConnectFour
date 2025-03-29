@@ -1,7 +1,6 @@
 public class ConnectFour {
 
     int [][] board;
-    boolean isGameOver;
     int winner;
 
     public ConnectFour () {
