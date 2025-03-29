@@ -7,8 +7,12 @@ public class ConnectFour {
 
     public ConnectFour () {
         board = new int [6][7];
-        int winner = 0;
+        winner = -1;
+    }
 
+    public ConnectFour (int [][] board) {
+        this.board = board;
+        winner = -1;
     }
 
     //TODO

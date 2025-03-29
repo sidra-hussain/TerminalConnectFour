@@ -9,6 +9,11 @@ public class ConnectFourGameTester {
 
         System.out.println("\nTESTING THE GAME BOARD...\n");
         testConnectFourToStringEmpty();
+        testHorizontalWin();
+        testVerticalWin();
+        testDiagonalWinBottomLeftToTopRight();
+        testDiagonalWinBottomRightToTopLeft();
+        testNoWinner();
         
     }
 
@@ -58,4 +63,95 @@ public class ConnectFourGameTester {
         if (resultString.equals(expectedString)){System.out.println("TEST 1 PASSED: Print an Empty Board");}
         else{System.out.println("TEST 1 FAILED: Print an Empty Board");}
     }
+
+     // Test horizontal win for Player 1
+    public static void testHorizontalWin() {
+        int[][] board = {
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0},
+            {1, 1, 1, 1, 0, 0, 0},  // Horizontal win for Player 1
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0}
+        };
+        ConnectFour game = new ConnectFour(board);
+        if (game.isGameOver() && game.winner == 1) {
+            System.out.println("TEST 2 PASSED: Horizontal win detected for Player 1");
+        } else {
+            System.out.println("TEST 2 FAILED: Horizontal win detected for Player 1");
+        }
+    }
+
+    // Test vertical win for Player 2
+    public static void testVerticalWin() {
+        int[][] board = {
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0},
+            {2, 0, 0, 0, 0, 0, 0},
+            {2, 0, 0, 0, 0, 0, 0},
+            {2, 0, 0, 0, 0, 0, 0},
+            {2, 0, 0, 0, 0, 0, 0}  // Vertical win for Player 2
+        };
+        ConnectFour game = new ConnectFour(board);
+        if (game.isGameOver() && game.winner == 2) {
+            System.out.println("TEST 3 PASSED: Vertical win detected for Player 2");
+        } else {
+            System.out.println("TEST 3 FAILED: Vertical win detected for Player 2");
+        }
+    }
+
+    // Test diagonal win (bottom-left to top-right) for Player 1
+    public static void testDiagonalWinBottomLeftToTopRight() {
+        int[][] board = {
+            {0, 0, 0, 1, 0, 0, 0},
+            {0, 0, 1, 0, 0, 0, 0},
+            {0, 1, 0, 0, 0, 0, 0},
+            {1, 0, 0, 0, 0, 0, 0},  // Diagonal ↗ win for Player 1
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 0}
+        };
+        ConnectFour game = new ConnectFour(board);
+        if (game.isGameOver() && game.winner == 1) {
+            System.out.println("TEST 4 PASSED: Diagonal win detected for Player 1");
+        } else {
+            System.out.println("TEST 4 FAILED: Diagonal win detected for Player 1");
+        }
+    }
+
+    // Test diagonal win (bottom-right to top-left) for Player 2
+    public static void testDiagonalWinBottomRightToTopLeft() {
+        int[][] board = {
+            {0, 0, 0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0, 0, 2},
+            {0, 0, 0, 0, 0, 2, 0},
+            {0, 0, 0, 0, 2, 0, 0},
+            {0, 0, 0, 2, 0, 0, 0},  // Diagonal ↖ win for Player 2
+            {0, 0, 0, 0, 0, 0, 0}
+        };
+        ConnectFour game = new ConnectFour(board);
+        if (game.isGameOver() && game.winner == 2) {
+            System.out.println("TEST 5 PASSED: Diagonal win detected for Player 2");
+        } else {
+            System.out.println("TEST 5 FAILED: Diagonal win detected for Player 2");
+        }
+    }
+
+    // Test for no winner
+    public static void testNoWinner() {
+        int[][] board = {
+            {1, 2, 1, 2, 1, 2, 1},
+            {2, 1, 2, 1, 2, 1, 2},
+            {1, 2, 1, 2, 1, 2, 1},
+            {2, 1, 2, 1, 2, 1, 2},
+            {1, 2, 1, 2, 1, 2, 1},
+            {2, 1, 2, 1, 2, 1, 2}  // Full board, no four in a row
+        };
+        ConnectFour game = new ConnectFour(board);
+        if (game.isGameOver() && game.winner == -1) {
+            System.out.println("TEST 6 PASSED: No winner detected correctly");
+        } else {
+            System.out.println("TEST 6 FAILED: No winner detected correctly");
+        }
+    }
+
 }
