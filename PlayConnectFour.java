@@ -12,12 +12,13 @@ public class PlayConnectFour {
             //print the current state of the game
             System.out.println (game.toString());
 
-            System.out.println("Player " + turnManager.getCurrentTurn() + "'s turn. Select a column between 0 and 6 to drop your piece");
+            System.out.println("Player " + turnManager.getCurrentTurn() + "'s turn. Select a column between 1 and 7 to drop your piece");
             int play = scanner.nextInt();
 
             //handle invalid moves
-            if(play > 6 || play < 0 || game.playerMove(turnManager.getCurrentTurn(), play) == false){
-                System.out.println("The play you entered is invalid, please play a valid column between 0 and 6");
+            if(play > 6 || play < 0 || game.playerMove(turnManager.getCurrentTurn(), play-1) == false){
+                System.out.println("The play you entered is invalid, please play a valid column to place a piece in between 1 and 7");
+                scanner.nextLine();
             }
 
             //when the move is valid complete the turn
@@ -30,6 +31,7 @@ public class PlayConnectFour {
 
         System.out.println(game.toString());
         System.out.println("PLAYER: " + game.winner + "WINS!");
+        scanner.close();
     }
     
 }
